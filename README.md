@@ -44,11 +44,20 @@
 ## ⚙️ Installation
 
 1. Clone this repository `git clone https://github.com/zer0-911/flask-clean-arch or click `Clone or Download`button and then click`Download ZIP`
-2. Install dependencies by running
+   > Optional: Recommended to use virtual environment
+2. Copy the `.env.example` file to `.env` and update the environment variables
+   ```bash
+   cp .env.example .env
+   ```
+3. Install dependencies by running
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the app
+4. Create the database and run the migrations
+   ```bash
+   flask db upgrade
+   ```
+5. Run the app
 
    ```bash
    flask run -h 0.0.0.0 -p 3000
