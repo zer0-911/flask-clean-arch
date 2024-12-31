@@ -11,3 +11,6 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from app import routes
+
+# Define model for migration purposes
+import app.models.userModel as userModel
