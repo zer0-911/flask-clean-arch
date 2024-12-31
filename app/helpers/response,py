@@ -1,0 +1,25 @@
+from flask import jsonify, make_response 
+from datetime import datetime
+
+def success(result, message, success_code=200):
+    now = datetime.now()
+    res = {
+        'success': True,
+        'message': message,
+        'datetime': now.strftime("%d/%m/%Y %H:%M:%S"),
+        'result': result
+    } if (result is not None) else {
+        'success': True,
+        'message': message,
+        'datetime': now.strftime("%d/%m/%Y %H:%M:%S")
+    }
+    return make_response(jsonify(res)), success_code
+
+def failed(message, error_code=400):
+    now = datetime.now()
+    res = {
+        'success': False,
+        'message': message,
+        'datetime': now.strftime("%d/%m/%Y %H:%M:%S")
+    }
+    return make_response(jsonify(res)), error_code
